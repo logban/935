@@ -5,7 +5,15 @@
     <p>by {{ object.author }} | {{ object.date }}</p>
     <p>{{ object.body }}</p>
 </div>
-
+<div class="card-footer">
+        {% for comment in article.comments.all %}
+        <p>
+            <span class="font-weight-bold">{{ comment.author }}
+            </span>
+        によるコメント：<br>{{ comment }}
+        </p>
+        {% endfor %}
+    </div>
 <p><a href="{% url 'article_edit' article.pk %}">Edit</a></p>
 <a href="{% url 'article_delete' article.pk %}">Delete</a>
 <p>Back to <a href="{% url 'article_list' %}">All Artiles</a></p>
