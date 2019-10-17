@@ -15,7 +15,11 @@
             <p>{{ article.body }}</p>
             <a href="{% url 'article_edit' article.pk %}">編集</a>|
             <a href="{% url 'article_delete' article.pk %}">削除</a>|
+            {% if user.is_authenticated %}
             <a href="{% url 'article_comment' article.pk %}">コメント</a>
+            {% else %}
+            <a>コメントするにはログインしてください</a>
+            {% endif %}
         </div>
         <div class="card-footer">
             {% for comment in article.comments.all %}

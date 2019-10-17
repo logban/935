@@ -7,10 +7,10 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import Article, Comment
 from django.urls import reverse_lazy
 
-class ArticleListView(LoginRequiredMixin,ListView):
+class ArticleListView(ListView):
     model = Article
     template_name = 'article_list.html'
-    login_url = 'login'
+    
 
 class ArticleDetailView(LoginRequiredMixin,DetailView):
     model = Article

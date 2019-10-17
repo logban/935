@@ -15,6 +15,7 @@
         {% endfor %}
     </div>
 <p><a href="{% url 'article_edit' article.pk %}">Edit</a></p>
+<p><a href="{% url 'article_comment' article.pk %}">コメント</a></p>
 <a href="{% url 'article_delete' article.pk %}">Delete</a>
 <p>Back to <a href="{% url 'article_list' %}">All Artiles</a></p>
 {% endblock content %}
